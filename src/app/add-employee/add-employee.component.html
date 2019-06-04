@@ -1,0 +1,54 @@
+<div class="jumbotron" style="width: 50rem">
+  <h1>
+    Employee Registration Form
+  </h1>
+  <form [formGroup]="registrationForm">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Employee ID</label>
+      <div class="col-sm-4">
+        <input type="text" placeholder="Id" style="border-color: darkcyan" formControlName="id" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">First name</label>
+      <div class="col-sm-4">
+        <input type="text" style="border-color: darkcyan"
+          [class.is-invalid]="registrationForm.get('firstName').invalid && registrationForm.get('firstName').touched"
+          placeholder="Name" formControlName="firstName" class="form-control">
+        <div *ngIf="registrationForm.get('firstName').invalid && registrationForm.get('firstName').touched">
+          <small *ngIf="registrationForm.get('firstName').errors?.required">Username is required</small>
+          <small *ngIf="registrationForm.get('firstName').errors?.minlength">must be atleast 3 characters</small>
+          <small *ngIf="registrationForm.get('firstName').errors?.pattern">Start with capital letter</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+
+      <label class="col-sm-2 col-form-label">Last name</label>
+      <div class="col-sm-4">
+        <input type="text" [class.is-invalid]="registrationForm.get('lastName').invalid && registrationForm.get('lastName').touched" style="border-color: darkcyan" placeholder="last name" formControlName="lastName"
+          class="form-control">
+          <div *ngIf="registrationForm.get('lastName').invalid && registrationForm.get('lastName').touched">
+          <small *ngIf="registrationForm.get('lastName').errors?.required">Mandatory field</small>
+      </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Salary</label>
+      <div class="col-sm-4">
+        <input type="text" [class.is-invalid]="registrationForm.get('salary').invalid && registrationForm.get('salary').touched"  style="border-color: darkcyan" placeholder="salary" formControlName="salary"
+          class="form-control">
+          <div *ngIf="registrationForm.get('salary').invalid && registrationForm.get('salary').touched">
+            <small *ngIf="registrationForm.get('salary').errors?.required">Required field</small>
+            <small *ngIf="registrationForm.get('salary').errors?.pattern">Only digits allowed</small>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]='registrationForm.invalid'
+      (click)="onSubmit()">Submit</button>&nbsp;
+
+    <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+
+  </form>
+
+</div>

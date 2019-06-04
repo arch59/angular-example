@@ -1,0 +1,9 @@
+table th {
+    text-align: center; 
+ }
+div{
+
+ display: inline-table;
+     justify-content: center;
+     align-items: center;
+ }

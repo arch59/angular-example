@@ -1,0 +1,9 @@
+h1{
+    color: cornflowerblue;
+}
+.jumbotron {
+    background-color:lightblue !important; 
+display: table-cell;
+    justify-content: center;
+    align-items: center;
+}

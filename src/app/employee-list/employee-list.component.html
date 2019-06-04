@@ -1,0 +1,28 @@
+<div class="col-md-8">
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="table-info">
+        <th>Id</th>
+        <th>first Name</th>
+        <th>Last Name</th>
+        <th>Employee salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employee">
+        <td>{{emp.id}}</td>
+        <td>{{emp.firstName}}</td>
+        <td>{{emp.lastName}}</td>
+        <td>{{emp.salary}}</td>
+        <td><button class="btn btn-primary" (click)="deleteEmployee(emp)">Delete</button></td>
+        <td><button class="btn btn-primary" (click)="updateEmployee(emp)">Update</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button class="btn btn-primary" (click)="goBack()">Back</button>&nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="exportAsXLSX()">Save in Excel file</button>
+  </div>
+
+</div>
